@@ -1,0 +1,30 @@
+﻿@model UrnaModelCalculation
+
+<form method="post" action="/Home/UrnaFormulas">
+
+
+    <div class="board">
+        <label class="result" asp-for="AllObjects">Всего объектов: </label>
+        <input asp-for="AllObjects" type="number" />
+    </div>
+
+    <div class="board">
+        <label class="result" asp-for="AllObjectsMarked">Помечено объектов: </label>
+        <input asp-for="AllObjectsMarked" type="number" />
+    </div>
+
+    <div class="board">
+        <label class="result" asp-for="SelectedObjects">Выбрано объектов: </label>
+        <input asp-for="SelectedObjects" type="number" />
+    </div>
+
+    <div class="board">
+        <label class="result" asp-for="SelectedObjectsMarked">Помеченных объектов среди выбранных оказалось: </label>
+        <input asp-for="SelectedObjectsMarked" type="number" />
+    </div>
+    <label class="result">Ответ: @Model.Result</label>
+    <div>
+        <br />
+        <button type="submit">Посчитать</button>
+    </div>
+</form>

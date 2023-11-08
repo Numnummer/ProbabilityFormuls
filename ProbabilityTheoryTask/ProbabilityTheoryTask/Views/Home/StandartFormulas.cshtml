@@ -1,0 +1,49 @@
+﻿@model SimpleProbabilityCalculation
+
+<form method="post" action="/Home/StandartFormulas">
+    <select asp-for="HasRepetitions">
+        <option value="true" onselect="window.location='@Url.Action("StandartFormulas", "Home")'">
+            С повторениями
+        </option>
+        <option value="false">
+            Без повторений
+        </option>
+    </select>
+    <button onclick="window.location='@Url.Action("StandartFormulas", "Home")'">Применить</button>
+    <br />
+    <div>
+        <label class="result" asp-for="PermutationInput">P</label>
+        <input asp-for="PermutationInput" type="number" />
+        @if (Model.HasRepetitions)
+        {
+            <input asp-for="PermutationExpression" type="text" />
+        }
+        <label class="result">=@Model.PermutationResult</label>
+    </div>
+
+    <div class="board">
+        <h1>A</h1>
+        <div>
+            <input asp-for="AccomodationChosenInput" type="number" />
+            <br />
+            <input asp-for="AccomodationAllInput" type="number" />
+        </div>
+        <label class="result">=@Model.AccomodationResult</label>
+    </div>
+
+    <div class="board">
+        <h1>C</h1>
+        <div>
+            <input asp-for="CombinationChosenInput" type="number" />
+            <br />
+            <input asp-for="CombinationAllInput" type="number" />
+        </div>
+        <label class="result">=@Model.CombinationResult</label>
+    </div>
+
+    <div>
+        <br />
+        <button type="submit">Посчитать</button>
+    </div>
+</form>
+
